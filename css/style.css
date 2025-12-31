@@ -1,0 +1,118 @@
+.custom-navbar {
+    background-color: #F2F0E3; /* cream */
+}
+.custom-navbar .navbar-brand span {
+    color: #333;
+}
+.custom-navbar .btn-primary {
+    background-color: #2E2E2E; /* Lofi-style warm color */
+    border: none;
+    padding: 15px 30px; /* tinggi dan lebar tombol */
+    font-size: 1rem;  /* ukuran teks */
+    border-radius: 10px; /* sudut tombol */
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+}
+.custom-navbar .btn-primary:hover {
+    background-color: #8c7460;
+}
+
+.dark-theme {
+    background-color: #1e1e2f;
+    color: #eee;
+}
+.dark-theme .custom-navbar {
+    background-color: #2b2b3f;
+}
+.dark-theme .btn-primary {
+    background-color: #665544;
+}
+
+.custom-navbar .navbar-brand span {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+.hero-title {
+    font-size: 3.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 10px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Base button */
+.hero-btn {
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 999px; /* pill style */
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+/* Primary (Beta button) */
+.hero-btn-primary {
+    background-color: #2E2E2E; /* warm lofi brown */
+    color: #ffffff;
+    border: none;
+}
+
+.hero-btn-primary:hover {
+    background-color: #8e785f;
+    transform: translateY(-2px);
+}
+
+/* Secondary (Support button) */
+.hero-btn-secondary {
+    background-color: #E6E4D7;
+    color: #2E2E2E;
+    border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.hero-socials {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+}
+
+.hero-socials a {
+    color: #2E2E2E;
+    font-size: 1.25rem;
+    transition: all 0.25s ease;
+}
+
+.hero-socials a:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.hero-light .hero-socials a {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.hero-light .hero-socials a:hover {
+    color: #000;
+}
+
