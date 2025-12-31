@@ -1,65 +1,585 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom OS Landing Page</title>
-    <!-- Bootstrap CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lofi-Desk OS — Calm, Fast, Minimal</title>
 
+  <!-- Set theme BEFORE paint (avoid flicker) -->
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("theme");
+        const prefersDark =
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = saved || (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <meta name="description" content="Landing page promosi OS buatan tim kamu: modern, aesthetic, dan siap dipresentasikan." />
 </head>
+
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg custom-navbar py-4">
-        <div class="container">
-            <!-- Kiri: Logo + Nama -->
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img src="assets/images/logo.png" alt="Logo Lofi-Desk" width="50" height="50" class="me-2">
-                <span class="small fw-bold">Lofi-Desk</span>
-            </a>
+  <!-- Background decoration -->
+  <div class="bg-orb orb-1" aria-hidden="true"></div>
+  <div class="bg-orb orb-2" aria-hidden="true"></div>
+  <div class="bg-orb orb-3" aria-hidden="true"></div>
 
-            <!-- Kanan: Download + Dark Mode Toggle -->
-            <div class="d-flex align-items-center ms-auto">
-                <a href="#download" class="btn btn-primary me-4">Download ➜</a>
-                </button>
-            </div>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg nav-glass sticky-top" id="topNav">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
+        <img
+          src="assets/images/logo.png"
+          alt="Logo"
+          width="36"
+          height="36"
+          class="brand-logo"
+        />
+        <div class="d-flex flex-column lh-1">
+          <span class="brand-name">Lofi-Desk OS</span>
+          <span class="brand-sub">calm • minimal • fast</span>
         </div>
-    </nav>
+      </a>
 
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navMenu"
+        aria-controls="navMenu"
+        aria-expanded="false"
+        aria-label="Buka menu"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Hero Section -->
-    <header id="home" class="text-dark py-5" style="background-color: #F2F0E3;">
-        <div class="container text-center py-5">
-            <h1 class="hero-title">
-            Welcome to<br>
-            a calmer workspace
-            </h1>
-            <p class="lead mb-4">Your ultimate study companion - a calm, focused, and customizable OS designed for those who love learning to the rhythm of lofi beats. Stay productive, stay inspired.</p>
-            <div class="hero-actions">
-            <a href="#download" class="btn hero-btn hero-btn-primary">
-                Beta is now available!
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#features">Fitur</a></li>
+          <li class="nav-item"><a class="nav-link" href="#showcase">Showcase</a></li>
+          <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+
+          <li class="nav-item ms-lg-2">
+            <button id="themeToggle" class="btn btn-ghost btn-sm" type="button" aria-label="Toggle tema">
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+              <span class="d-none d-sm-inline">Tema</span>
+            </button>
+          </li>
+
+          <li class="nav-item ms-lg-2">
+            <!-- TODO: ganti href ke link unduh yang bener -->
+            <a class="btn btn-brand btn-sm" href="#download">
+              Download <i class="fa-solid fa-arrow-right ms-1" aria-hidden="true"></i>
             </a>
-            <a href="#features" class="btn hero-btn hero-btn-secondary">
-                Support Us ❤︎
-            </a>
-        </div>
-        <div class="hero-socials mt-4">
-    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a href="#" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
-    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" aria-label="Reddit"><i class="fab fa-reddit"></i></a>
-    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero" id="home">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6">
+          <div class="reveal">
+            <div class="pill">
+              <i class="fa-solid fa-wand-magic-sparkles me-2" aria-hidden="true"></i>
+              <span>
+                <!-- TODO: ganti info versi / rilis -->
+                Rilis Demo • 2025
+              </span>
+            </div>
+
+            <h1 class="hero-title mt-3">
+              <!-- TODO: ganti nama OS kamu -->
+              Lofi-Desk OS
+              <span class="hero-title-accent">yang bikin kerja lebih tenang.</span>
+            </h1>
+
+            <p class="hero-subtitle mt-3">
+              <!-- TODO: ganti deskripsi sesuai OS kamu -->
+              Sistem operasi buatan tim kamu: ringan, fokus, dan enak dipandang.
+              Cocok buat presentasi, tugas, dan demo proyek.
+            </p>
+
+            <div class="hero-actions mt-4">
+              <!-- TODO: ganti href download langsung jika sudah ada -->
+              <a class="btn btn-brand btn-lg" href="#download">
+                Get it now <i class="fa-solid fa-download ms-2" aria-hidden="true"></i>
+              </a>
+              <a class="btn btn-outline-soft btn-lg" href="#features">
+                Lihat fitur <i class="fa-solid fa-chevron-down ms-2" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <div class="hero-badges mt-4">
+              <!-- TODO: ganti highlight sesuai OS kamu -->
+              <span class="badge-soft"><i class="fa-solid fa-bolt me-2"></i>Boot cepat</span>
+              <span class="badge-soft"><i class="fa-solid fa-feather me-2"></i>Ringan</span>
+              <span class="badge-soft"><i class="fa-solid fa-shield-halved me-2"></i>Aman</span>
+              <span class="badge-soft"><i class="fa-solid fa-palette me-2"></i>UI aesthetic</span>
+            </div>
+
+            <div class="hero-socials mt-4">
+              <!-- TODO: ganti link sosial -->
+              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a href="#" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            </div>
+          </div>
         </div>
-    </header>
 
+        <div class="col-lg-6">
+          <div class="reveal">
+            <!-- Mockup card (no image needed) -->
+            <div class="mockup">
+              <div class="mockup-topbar">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+                <span class="mockup-title">lofi-desk://home</span>
+              </div>
+              <div class="mockup-body">
+                <div class="mockup-grid">
+                  <div class="mock-card">
+                    <div class="mock-icon"><i class="fa-solid fa-music"></i></div>
+                    <div>
+                      <div class="mock-h">Focus Mode</div>
+                      <div class="mock-p">Minim distraksi, maksimal produktif.</div>
+                    </div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mock-icon"><i class="fa-solid fa-leaf"></i></div>
+                    <div>
+                      <div class="mock-h">Calm UI</div>
+                      <div class="mock-p">Warna lembut, layout bersih.</div>
+                    </div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mock-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                    <div>
+                      <div class="mock-h">Lightweight</div>
+                      <div class="mock-p">Responsif di spek rendah.</div>
+                    </div>
+                  </div>
+                  <div class="mock-card">
+                    <div class="mock-icon"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                      <div class="mock-h">Privacy-first</div>
+                      <div class="mock-p">Lebih aman untuk daily use.</div>
+                    </div>
+                  </div>
+                </div>
 
-    <!-- Bootstrap JS CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+                <div class="mockup-footer">
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 74%"></div>
+                  </div>
+                  <div class="mockup-footnote">
+                    <span>System health: good</span>
+                    <span>Build: demo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mini-stats mt-3">
+              <!-- TODO: ganti angka agar sesuai -->
+              <div class="mini-stat">
+                <div class="mini-k">RAM</div>
+                <div class="mini-v">1–2 GB</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-k">Storage</div>
+                <div class="mini-v">8+ GB</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-k">Boot</div>
+                <div class="mini-v">~12s</div>
+              </div>
+              <div class="mini-stat">
+                <div class="mini-k">Target</div>
+                <div class="mini-v">Student</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Fitur yang bikin OS kamu “kerasa jadi produk”</h2>
+        <p class="section-subtitle">
+          <!-- TODO: ganti paragraf sesuai materi -->
+          Ini contoh struktur promosi. Nanti kamu tinggal sesuaikan dengan fitur asli OS kamu.
+        </p>
+      </div>
+
+      <div class="row g-4 mt-1">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h3 class="feature-title">UI yang tenang & modern</h3>
+            <p class="feature-text">Tampilan clean, warna lembut, enak dipandang buat kerja lama.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h3 class="feature-title">Performa ringan</h3>
+            <p class="feature-text">Responsif dan hemat resource—cocok buat device spek pas-pasan.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+            <h3 class="feature-title">Privacy-friendly</h3>
+            <p class="feature-text">Konsep privasi jelas: minim tracking, kontrol yang transparan.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <h3 class="feature-title">Workflow rapih</h3>
+            <p class="feature-text">Fokus ke hal penting: shortcut, panel ringkas, dan pengaturan cepat.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+            <h3 class="feature-title">Mudah dikembangkan</h3>
+            <p class="feature-text">Struktur modular: gampang nambah fitur, tema, atau tooling.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="feature-card">
+            <div class="feature-icon"><i class="fa-solid fa-heart"></i></div>
+            <h3 class="feature-title">Made by students</h3>
+            <p class="feature-text">Ceritakan motivasi tim & value-nya biar makin “real product”.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOWCASE -->
+  <section class="section section-soft" id="showcase">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-6 reveal">
+          <h2 class="section-title">Showcase yang enak buat presentasi</h2>
+          <p class="section-subtitle">
+            <!-- TODO: ganti isi sesuai OS kamu -->
+            Bagian ini buat menjelaskan “kenapa OS kamu beda”: filosofi, target user, dan keunggulan.
+          </p>
+
+          <ul class="checklist mt-4">
+            <!-- TODO: sesuaikan -->
+            <li><i class="fa-solid fa-circle-check"></i> Fokus pada pengalaman pengguna yang calm</li>
+            <li><i class="fa-solid fa-circle-check"></i> Desain konsisten (spacing, typography, warna)</li>
+            <li><i class="fa-solid fa-circle-check"></i> Cocok untuk demo fitur utama OS kamu</li>
+            <li><i class="fa-solid fa-circle-check"></i> Struktur web siap diisi materi asli</li>
+          </ul>
+
+          <div class="mt-4 d-flex gap-3 flex-wrap">
+            <a class="btn btn-brand" href="#download">Unduh sekarang</a>
+            <a class="btn btn-ghost" href="#faq">Baca FAQ</a>
+          </div>
+        </div>
+
+        <div class="col-lg-6 reveal">
+          <div class="showcase-card">
+            <div class="showcase-surface">
+              <div class="showcase-lines" aria-hidden="true"></div>
+              <div class="showcase-content">
+                <div class="showcase-title">
+                  <span class="tag">New</span>
+                  <span>Dashboard • Focus Center</span>
+                </div>
+                <div class="showcase-grid">
+                  <div class="showcase-widget">
+                    <div class="w-title">Tasks</div>
+                    <div class="w-item"></div>
+                    <div class="w-item w-item-muted"></div>
+                    <div class="w-item"></div>
+                  </div>
+                  <div class="showcase-widget">
+                    <div class="w-title">System</div>
+                    <div class="w-meter">
+                      <span style="width: 62%"></span>
+                    </div>
+                    <div class="w-meter">
+                      <span style="width: 38%"></span>
+                    </div>
+                    <div class="w-meter">
+                      <span style="width: 78%"></span>
+                    </div>
+                  </div>
+                  <div class="showcase-widget wide">
+                    <div class="w-title">Notes</div>
+                    <div class="w-par"></div>
+                    <div class="w-par"></div>
+                    <div class="w-par short"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="showcase-foot">
+              <span><i class="fa-solid fa-shield-halved me-2"></i>Secure defaults</span>
+              <span><i class="fa-solid fa-bolt me-2"></i>Fast launch</span>
+              <span><i class="fa-solid fa-palette me-2"></i>Theme-ready</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="section" id="download">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">Download</h2>
+        <p class="section-subtitle">
+          <!-- TODO: ganti teks + link download beneran -->
+          Pilih format yang kamu butuhkan. Tombol masih placeholder—nanti kamu ganti link-nya.
+        </p>
+      </div>
+
+      <div class="row g-4 mt-1">
+        <div class="col-lg-4 reveal">
+          <div class="dl-card">
+            <div class="dl-icon"><i class="fa-solid fa-compact-disc"></i></div>
+            <h3 class="dl-title">ISO Installer</h3>
+            <p class="dl-text">Untuk install ke laptop/PC atau boot via USB.</p>
+            <a class="btn btn-brand w-100" href="#" aria-label="Download ISO">
+              Download ISO
+            </a>
+            <div class="dl-meta mt-3">
+              <span>Size: ~1.2 GB</span>
+              <span>SHA256: —</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 reveal">
+          <div class="dl-card">
+            <div class="dl-icon"><i class="fa-solid fa-box"></i></div>
+            <h3 class="dl-title">VM Image</h3>
+            <p class="dl-text">Paling cepat buat demo: tinggal run di VirtualBox/VM.</p>
+            <a class="btn btn-ghost w-100" href="#" aria-label="Download VM">
+              Download VM
+            </a>
+            <div class="dl-meta mt-3">
+              <span>Format: .ova / .vdi</span>
+              <span>Guide: Included</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 reveal">
+          <div class="dl-card">
+            <div class="dl-icon"><i class="fa-brands fa-github"></i></div>
+            <h3 class="dl-title">Source Code</h3>
+            <p class="dl-text">Untuk penilaian/review: lihat struktur & kontribusi tim.</p>
+            <a class="btn btn-outline-soft w-100" href="#" aria-label="Open Source Code">
+              Open Repository
+            </a>
+            <div class="dl-meta mt-3">
+              <span>License: —</span>
+              <span>Last update: —</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="req-card mt-4 reveal">
+        <div class="req-left">
+          <h3 class="req-title">System Requirements (contoh)</h3>
+          <p class="req-text">Sesuaikan dengan kebutuhan OS kamu supaya terlihat meyakinkan.</p>
+        </div>
+        <div class="req-right">
+          <div class="req-item"><span>CPU</span><b>Dual-core+</b></div>
+          <div class="req-item"><span>RAM</span><b>2GB (min)</b></div>
+          <div class="req-item"><span>Storage</span><b>8GB+</b></div>
+          <div class="req-item"><span>GPU</span><b>Optional</b></div>
+        </div>
+      </div>
+
+      <div class="cta-strip mt-4 reveal">
+        <div>
+          <h3 class="cta-title">Butuh yang “isi banget” untuk presentasi?</h3>
+          <p class="cta-text">Kirim materi OS kamu (nama, fitur, screenshot, link). Aku rapihin + masukin ke template ini.</p>
+        </div>
+        <a class="btn btn-brand" href="#home">Ke atas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-soft" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2 class="section-title">FAQ</h2>
+        <p class="section-subtitle">
+          <!-- TODO: ganti sesuai tanya-jawab OS kamu -->
+          Pertanyaan yang biasanya ditanyain dosen/temen pas demo.
+        </p>
+      </div>
+
+      <div class="accordion mt-3 reveal" id="faqAccordion">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q1">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
+              OS ini dibuat pakai apa?
+            </button>
+          </h2>
+          <div id="a1" class="accordion-collapse collapse show" aria-labelledby="q1" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <!-- TODO -->
+              Jelasin stack kamu: base distro, kernel, desktop environment, tooling, dan alasan pilihan.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q2">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+              Target user OS ini siapa?
+            </button>
+          </h2>
+          <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <!-- TODO -->
+              Misal: pelajar/mahasiswa, daily productivity, spek rendah, atau kebutuhan tertentu.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q3">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+              Apa fitur pembeda utama?
+            </button>
+          </h2>
+          <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <!-- TODO -->
+              Tulis 2–3 hal yang benar-benar beda: UI/UX, performance, security, workflow, dll.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q4">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+              Bisa diinstall di hardware asli?
+            </button>
+          </h2>
+          <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <!-- TODO -->
+              Jelaskan dukungan install (USB boot/ISO) dan kompatibilitas singkat.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="q5">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+              Roadmap next-nya apa?
+            </button>
+          </h2>
+          <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              <!-- TODO -->
+              Misal: tambah app store, theme manager, update mechanism, docs, dll.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/images/logo.png" alt="Logo" width="28" height="28" class="brand-logo" />
+          <div>
+            <div class="footer-name">Lofi-Desk OS</div>
+            <div class="footer-sub">Custom OS project • Team-based</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#features">Fitur</a>
+          <a href="#showcase">Showcase</a>
+          <a href="#download">Download</a>
+          <a href="#faq">FAQ</a>
+        </div>
+
+        <div class="footer-socials">
+          <!-- TODO: ganti link sosial -->
+          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="yearNow"></span> Lofi-Desk OS. Built for demo & presentation.</span>
+        <span class="muted">Made with Bootstrap + custom CSS.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/script.js" defer></script>
 </body>
 </html>
