@@ -5,20 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lofi-Desk OS — Calm, Fast, Minimal</title>
 
-  <!-- Set theme BEFORE paint (avoid flicker) -->
-  <script>
-    (() => {
-      try {
-        const saved = localStorage.getItem("theme");
-        const prefersDark =
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches;
-        const theme = saved || (prefersDark ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
-      } catch (e) {}
-    })();
-  </script>
-
   <!-- Bootstrap 5 -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -52,7 +38,7 @@
   <div class="bg-orb orb-3" aria-hidden="true"></div>
 
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg nav-glass sticky-top" id="topNav">
+  <nav class="navbar navbar-expand-lg nav-glass sticky-top" id="topNav" data-bs-theme="light">
     <div class="container py-2">
       <a class="navbar-brand d-flex align-items-center gap-2" href="#home">
         <img
@@ -86,13 +72,6 @@
           <li class="nav-item"><a class="nav-link" href="#showcase">Showcase</a></li>
           <li class="nav-item"><a class="nav-link" href="#download">Download</a></li>
           <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-
-          <li class="nav-item ms-lg-2">
-            <button id="themeToggle" class="btn btn-ghost btn-sm" type="button" aria-label="Toggle tema">
-              <i class="fa-solid fa-moon" aria-hidden="true"></i>
-              <span class="d-none d-sm-inline">Tema</span>
-            </button>
-          </li>
 
           <li class="nav-item ms-lg-2">
             <!-- TODO: ganti href ke link unduh yang bener -->
@@ -161,7 +140,6 @@
 
         <div class="col-lg-6">
           <div class="reveal">
-            <!-- Mockup card (no image needed) -->
             <div class="mockup">
               <div class="mockup-topbar">
                 <span class="dot dot-red"></span>
@@ -214,7 +192,6 @@
             </div>
 
             <div class="mini-stats mt-3">
-              <!-- TODO: ganti angka agar sesuai -->
               <div class="mini-stat">
                 <div class="mini-k">RAM</div>
                 <div class="mini-v">1–2 GB</div>
@@ -314,7 +291,6 @@
           </p>
 
           <ul class="checklist mt-4">
-            <!-- TODO: sesuaikan -->
             <li><i class="fa-solid fa-circle-check"></i> Fokus pada pengalaman pengguna yang calm</li>
             <li><i class="fa-solid fa-circle-check"></i> Desain konsisten (spacing, typography, warna)</li>
             <li><i class="fa-solid fa-circle-check"></i> Cocok untuk demo fitur utama OS kamu</li>
@@ -368,7 +344,7 @@
             <div class="showcase-foot">
               <span><i class="fa-solid fa-shield-halved me-2"></i>Secure defaults</span>
               <span><i class="fa-solid fa-bolt me-2"></i>Fast launch</span>
-              <span><i class="fa-solid fa-palette me-2"></i>Theme-ready</span>
+              <span><i class="fa-solid fa-palette me-2"></i>Consistent UI</span>
             </div>
           </div>
         </div>
@@ -477,7 +453,6 @@
           </h2>
           <div id="a1" class="accordion-collapse collapse show" aria-labelledby="q1" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              <!-- TODO -->
               Jelasin stack kamu: base distro, kernel, desktop environment, tooling, dan alasan pilihan.
             </div>
           </div>
@@ -491,7 +466,6 @@
           </h2>
           <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              <!-- TODO -->
               Misal: pelajar/mahasiswa, daily productivity, spek rendah, atau kebutuhan tertentu.
             </div>
           </div>
@@ -505,7 +479,6 @@
           </h2>
           <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              <!-- TODO -->
               Tulis 2–3 hal yang benar-benar beda: UI/UX, performance, security, workflow, dll.
             </div>
           </div>
@@ -519,7 +492,6 @@
           </h2>
           <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              <!-- TODO -->
               Jelaskan dukungan install (USB boot/ISO) dan kompatibilitas singkat.
             </div>
           </div>
@@ -533,7 +505,6 @@
           </h2>
           <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
             <div class="accordion-body">
-              <!-- TODO -->
               Misal: tambah app store, theme manager, update mechanism, docs, dll.
             </div>
           </div>
@@ -562,7 +533,6 @@
         </div>
 
         <div class="footer-socials">
-          <!-- TODO: ganti link sosial -->
           <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
           <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
