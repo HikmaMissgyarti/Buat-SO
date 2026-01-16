@@ -382,9 +382,29 @@ a { text-decoration: none; }
 /* Sections */
 .section { padding: 78px 0; }
 .section-soft {
-  background: linear-gradient(180deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10), rgba(255,255,255,0.14));
+  position: relative;
+  background: transparent;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+.section-soft::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255,255,255,0.18),
+    rgba(255,255,255,0.08), 
+    rgba(255,255,255,0.12)
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-soft > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-head { max-width: 820px; }
