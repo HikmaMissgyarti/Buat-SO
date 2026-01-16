@@ -521,6 +521,20 @@ body::before {
 }
 .showcase-content { position: relative; z-index: 1; }
 
+.showcase-logo-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 0;
+}
+
+.showcase-logo {
+  width: 300px;
+  opacity: 0.85;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.2));
+}
+
 .showcase-title {
   display: flex;
   align-items: center;

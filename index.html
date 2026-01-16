@@ -129,10 +129,10 @@
 
             <div class="hero-socials mt-4">
               <!-- TODO: ganti link sosial -->
-              <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-              <a href="#" aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+              <a aria-label="GitHub"><i class="fab fa-github"></i></a>
+              <a aria-label="Twitter / X"><i class="fab fa-twitter"></i></a>
+              <a aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a aria-label="Discord"><i class="fab fa-discord"></i></a>
             </div>
           </div>
         </div>
@@ -187,25 +187,6 @@
                     <span>Build: demo</span>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="mini-stats mt-3">
-              <div class="mini-stat">
-                <div class="mini-k">RAM</div>
-                <div class="mini-v">1-2 GB</div>
-              </div>
-              <div class="mini-stat">
-                <div class="mini-k">Storage</div>
-                <div class="mini-v">8+ GB</div>
-              </div>
-              <div class="mini-stat">
-                <div class="mini-k">Boot</div>
-                <div class="mini-v">~12s</div>
-              </div>
-              <div class="mini-stat">
-                <div class="mini-k">Target</div>
-                <div class="mini-v">Student</div>
               </div>
             </div>
 
@@ -311,31 +292,13 @@
                   <span class="tag">New</span>
                   <span>Dashboard • Focus Center</span>
                 </div>
+                <div class="showcase-logo-wrap">
+                <img
+                  src="assets/images/logo.png"
+                  alt="Lofi-Desk OS Logo"
+                  class="showcase-logo"
+                />
                 <div class="showcase-grid">
-                  <div class="showcase-widget">
-                    <div class="w-title">Tasks</div>
-                    <div class="w-item"></div>
-                    <div class="w-item w-item-muted"></div>
-                    <div class="w-item"></div>
-                  </div>
-                  <div class="showcase-widget">
-                    <div class="w-title">System</div>
-                    <div class="w-meter">
-                      <span style="width: 62%"></span>
-                    </div>
-                    <div class="w-meter">
-                      <span style="width: 38%"></span>
-                    </div>
-                    <div class="w-meter">
-                      <span style="width: 78%"></span>
-                    </div>
-                  </div>
-                  <div class="showcase-widget wide">
-                    <div class="w-title">Notes</div>
-                    <div class="w-par"></div>
-                    <div class="w-par"></div>
-                    <div class="w-par short"></div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -359,64 +322,41 @@
       </div>
 
       <div class="row g-4 mt-1">
+        <!-- DOWNLOAD CARD -->
         <div class="col-lg-4 reveal">
-          <div class="dl-card">
+          <div class="dl-card h-100">
             <div class="dl-icon"><i class="fa-solid fa-compact-disc"></i></div>
             <h3 class="dl-title">ISO Installer</h3>
             <p class="dl-text">Untuk install ke laptop/PC atau boot via USB.</p>
-            <a class="btn btn-brand w-100" href="https://drive.google.com/file/d/1ggg6q27ztAE5xag7zx0OMiAs3d6YzEY7/view?usp=sharing" aria-label="Download ISO">
+            <a
+              class="btn btn-brand w-100"
+              href="https://drive.google.com/file/d/1ggg6q27ztAE5xag7zx0OMiAs3d6YzEY7/view?usp=sharing"
+            >
               Download ISO
             </a>
             <div class="dl-meta mt-3">
-              <span>Size: ~3.29 GB</span>
-              <span>SHA256: —</span>
+              <span>Size: ~3.2 GB</span>
             </div>
           </div>
         </div>
 
-        <div class="col-lg-4 reveal">
-          <div class="dl-card">
-            <div class="dl-icon"><i class="fa-solid fa-box"></i></div>
-            <h3 class="dl-title">VM Image</h3>
-            <p class="dl-text">Paling cepat buat demo: tinggal run di VirtualBox/VM.</p>
-            <a class="btn btn-ghost w-100" href="https://drive.google.com/file/d/1ggg6q27ztAE5xag7zx0OMiAs3d6YzEY7/view?usp=sharing" aria-label="Download VM">
-              Download VM
-            </a>
-            <div class="dl-meta mt-3">
-              <span>Format: .ova / .vdi</span>
-              <span>Guide: Included</span>
+        <!-- REQUIREMENTS CARD -->
+        <div class="col-lg-8 reveal">
+          <div class="req-card h-100">
+            <div class="req-left">
+              <h3 class="req-title">System Requirements</h3>
+              <p class="req-text">Minimum specs for a smooth Lofi-Desk experience.</p>
             </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 reveal">
-          <div class="dl-card">
-            <div class="dl-icon"><i class="fa-brands fa-github"></i></div>
-            <h3 class="dl-title">Source Code</h3>
-            <p class="dl-text">Untuk penilaian/review: lihat struktur & kontribusi tim.</p>
-            <a class="btn btn-outline-soft w-100" href="https://github.com/HikmaMissgyarti/Buat-SO" aria-label="Open Source Code">
-              Open Repository
-            </a>
-            <div class="dl-meta mt-3">
-              <span>License: —</span>
-              <span>Last update: —</span>
+            <div class="req-right">
+              <div class="req-item"><span>CPU</span><b>Quad-core+</b></div>
+              <div class="req-item"><span>RAM</span><b>4GB (min)</b></div>
+              <div class="req-item"><span>Storage</span><b>8GB+</b></div>
+              <div class="req-item"><span>GPU</span><b>Optional</b></div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="req-card mt-4 reveal">
-        <div class="req-left">
-          <h3 class="req-title">System Requirements</h3>
-          <p class="req-text">Minimum specs for a smooth Lofi-Desk experience.</p>
-        </div>
-        <div class="req-right">
-          <div class="req-item"><span>CPU</span><b>Quad-core+</b></div>
-          <div class="req-item"><span>RAM</span><b>2GB (min)</b></div>
-          <div class="req-item"><span>Storage</span><b>8GB+</b></div>
-          <div class="req-item"><span>GPU</span><b>Optional</b></div>
-        </div>
-      </div>
 
   <!-- FAQ -->
   <section class="section section-soft mt-5" id="faq">
@@ -482,22 +422,6 @@
           </div>
         </div>
 
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="q5">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
-              Roadmap Lofi-Desk OS selanjutnya apa?
-            </button>
-          </h2>
-          <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
-            <div class="accordion-body">
-              Ke depannya, Lofi-Desk OS direncanakan untuk menambah fitur kustomisasi tema, optimalisasi performa, serta integrasi tooling yang lebih mendukung aktivitas belajar dan produktivitas pengguna.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -518,14 +442,14 @@
         </div>
 
         <div class="footer-socials">
-          <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+          <a aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a aria-label="Discord"><i class="fab fa-discord"></i></a>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <span>© <span id="yearNow"></span> Lofi-Desk OS. Built for demo & presentation.</span>
+        <span>© <span id="yearNow"></span> Lofi-Desk OS. A Custom Operating System Designed for Productivity and Focus.</span>
         <span class="muted">Made with Bootstrap + custom CSS.</span>
       </div>
     </div>
